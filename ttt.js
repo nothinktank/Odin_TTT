@@ -9,12 +9,12 @@
     //[30, 31, 32]
 
     let gameBoard = function (){
-      let boardObj = {row1:[], row2:[],row3:[],};
-      return {boardObj}
+      let boardArray = [[],[],[]];
+      return {boardArray}
     }
 
     // use game1 = gameboard() to initiate a new game
-    // use game1.boardObj['row1'][0] = x/o to place a move
+    // use game1.boardObj[0][0] = x/o to place a move
 
 
 
