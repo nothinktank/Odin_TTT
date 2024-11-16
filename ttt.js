@@ -21,11 +21,16 @@
 //2. create player objects
     //placing a move
     //when placing a move, run gameDecider
-    //
-    // let playerX = {
-    //   let move = gameBoard.boardArray
-    // };
-    // let playerO = {};
+    
+
+    let playerX = (function() {
+      let move = (row, column) => gameBoard.boardArray[row][column] = 'x';
+
+      return {move};
+    })();
+  
+    
+    let playerO = {};
 
 //3. create an object to control the flow of the game
     //alternate the o/x placement 
