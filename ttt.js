@@ -8,16 +8,14 @@
     //[10, 11, 12]
     //[20, 21, 22]
 
-    let gameBoard = function (){
+    //IIFE immediately invoked function expression (module pattern)
+    let gameBoard = (function (){
       let boardArray = [[],[],[]];
       return {boardArray}
-    }
+    })();
 
-    // use game1 = gameboard() to initiate a new game
-    // use game1.boardObj[0][0] = x/o to place a move
-
-
-
+    // use gameboard.boardArray[0][0] to place a move
+    
 
     //win conditions
     // 00, 01, 02 => all X or O
