@@ -38,7 +38,19 @@
     })();
   
     
-    let playerO = {};
+    let playerO = (function() {
+      let move = (row, column) => {
+        if (gameBoard.boardArray[row][column] === ''){
+          gameBoard.boardArray[row][column] = 'o';
+        }else {
+          console.log('can\'t place here');
+          return
+        }
+      }
+        
+
+      return {move};
+    })();
 
 //3. create an object to control the flow of the game
     //alternate the o/x placement 
