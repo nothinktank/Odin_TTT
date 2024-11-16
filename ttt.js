@@ -10,7 +10,7 @@
 
     //IIFE immediately invoked function expression (module pattern)
     let gameBoard = (function (){
-      let boardArray = [[],[],[]];
+      let boardArray = [['','',''],['','',''],['','','']];
       return {boardArray}
     })();
 
@@ -24,7 +24,15 @@
     
 
     let playerX = (function() {
-      let move = (row, column) => gameBoard.boardArray[row][column] = 'x';
+      let move = (row, column) => {
+        if (gameBoard.boardArray[row][column] === ''){
+          gameBoard.boardArray[row][column] = 'x';
+        }else {
+          console.log('can\'t place here');
+          return
+        }
+      }
+        
 
       return {move};
     })();
