@@ -4,9 +4,9 @@
 //1. store the gameboard as an array inside of a Gameboard object
   //set up 3 arrays
     //row1, row2, row3 arrays 
-    //[10, 11, 12] (row1 and position 0 => 10)
+    //[00, 01, 02] (row1 and position 0 => 00)
+    //[10, 11, 12]
     //[20, 21, 22]
-    //[30, 31, 32]
 
     let gameBoard = function (){
       let boardArray = [[],[],[]];
@@ -20,14 +20,14 @@
 
 
     //win conditions
+    // 00, 01, 02 => all X or O
     // 10, 11, 12 => all X or O
     // 20, 21, 22 => all X or O
-    // 30, 31, 32 => all X or O
-    // 10, 20, 30 => all X or O
-    // 11, 21, 31 => all X or O
-    // 12, 22, 32 => all X or O
-    // 10, 21, 32 => all X or O
-    // 30, 21, 12 => all X or O
+    // 00, 10, 20 => all X or O
+    // 01, 11, 21 => all X or O
+    // 02, 12, 22 => all X or O
+    // 01, 11, 22 => all X or O
+    // 20, 11, 02 => all X or O
 
     //if any of the above satisfy for X before O satisfy any of those
     //X wins, 
