@@ -21,7 +21,7 @@
 //2. create player objects
     //placing a move
     //when placing a move, run gameDecider
-    
+    //before running gameDecider, only run necessary functions based on placements
 
     let playerX = (function() {
       const move = (row, column) => {
@@ -69,7 +69,7 @@
 
       const didPlayerWinHorizontal = function(){
         for (let i = 0; i <= 2; i++) {
-          if (gameBoard.boardArray[i][0] != '' && gameBoard.boardArray[i][0] === gameBoard.boardArray[i][1] && gameBoard.boardArray[i][1] === gameBoard.boardArray[i][2]){
+          if(gameBoard.boardArray[i][0] != '' && gameBoard.boardArray[i][0] === gameBoard.boardArray[i][1] && gameBoard.boardArray[i][1] === gameBoard.boardArray[i][2]){
             console.log(`${gameBoard.boardArray[i][0]} player wins`);
             gameBoard.boardArray = [['','',''],['','',''],['','','']];
             return
@@ -79,7 +79,7 @@
       
       const didPlayerWinVertical = function(){
         for (let i = 0; i <= 2; i++) {
-          if (gameBoard.boardArray[0][i] === gameBoard.boardArray[1][i] && gameBoard.boardArray[1][i] === gameBoard.boardArray[2][i] && gameBoard.boardArray[0][i] != ''){
+          if(gameBoard.boardArray[0][i] === gameBoard.boardArray[1][i] && gameBoard.boardArray[1][i] === gameBoard.boardArray[2][i] && gameBoard.boardArray[0][i] != ''){
             console.log(`${gameBoard.boardArray[0][i]} player wins`);
             gameBoard.boardArray = [['','',''],['','',''],['','','']];
             return
@@ -88,7 +88,24 @@
       }
 
       const didPlayerWinDiagonal = function(){
+        //[00, 01, 02] (row1 and position 0 => 00)
+        //[10, 11, 12]
+        //[20, 21, 22]
 
+        //if position 11 != '' && 00 === 22 && 22 === 11
+        // OR if position 11 != '' && 02 === 20 && 20 === 11
+
+        if(gameBoard.boardArray[1][1] != '') {
+          if (gameBoard.boardArray[0][0] === gameBoard.boardArray[2][2] && gameBoard.boardArray[2][2] === gameBoard.boardArray[1][1]){
+            console.log(`${gameBoard.boardArray[1][1]} player wins`);
+            gameBoard.boardArray = [['','',''],['','',''],['','','']];
+            return
+          } else if (gameBoard.boardArray[0][2] === gameBoard.boardArray[2][0] && gameBoard.boardArray[2][0] === gameBoard.boardArray[1][1]){
+            console.log(`${gameBoard.boardArray[1][1]} player wins`);
+            gameBoard.boardArray = [['','',''],['','',''],['','','']];
+            return  
+          }
+        }
       }
 
       return {didPlayerWinDiagonal, didPlayerWinHorizontal, didPlayerWinVertical}
