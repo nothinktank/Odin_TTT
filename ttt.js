@@ -24,7 +24,7 @@
     
 
     let playerX = (function() {
-      let move = (row, column) => {
+      const move = (row, column) => {
         if (gameBoard.boardArray[row][column] === ''){
           gameBoard.boardArray[row][column] = 'x';
         }else {
@@ -39,7 +39,7 @@
   
     
     let playerO = (function() {
-      let move = (row, column) => {
+      const move = (row, column) => {
         if (gameBoard.boardArray[row][column] === ''){
           gameBoard.boardArray[row][column] = 'o';
         }else {
@@ -59,28 +59,44 @@
 
 //4. include logic that checks for when the game is over
     //decide the outcome (win/lose/draw)
-    let gameDecider = function() {
-      let board = gameBoard.boardArray;
+
+    
+
+    let gameDecider = (function() {
       
-      switch (true) {
-        case board[0][0] === 'x' && board[0][1] === 'x' && board[0][2] === 'x':
-          console.log('x wins');
-          break;
-        default: 
-          console.log('default test');
+
+      //check for 3 conditions, horizontal/vertical/diagonal 
+
+      const didPlayerWinHorizontal = function(){
+        for (let i = 0; i <= 2; i++) {
+          if (gameBoard.boardArray[i][0] != '' && gameBoard.boardArray[i][0] === gameBoard.boardArray[i][1] && gameBoard.boardArray[i][1] === gameBoard.boardArray[i][2]){
+            console.log(`${gameBoard.boardArray[i][0]} player wins`)
+            gameBoard.boardArray = [['','',''],['','',''],['','','']];
+            return
+        }
+        } 
+      };
+      
+      const didPlayerWinVertical = function(){
+
       }
-      
-    };
+      const didPlayerWinDiagonal = function(){
+
+      }
+
+      return {didPlayerWinDiagonal, didPlayerWinHorizontal, didPlayerWinVertical}
+
+    })();
 
         //win conditions
-          // 00, 01, 02 => all X or O
-          // 10, 11, 12 => all X or O
-          // 20, 21, 22 => all X or O
-          // 00, 10, 20 => all X or O
-          // 01, 11, 21 => all X or O
-          // 02, 12, 22 => all X or O
-          // 01, 11, 22 => all X or O
-          // 20, 11, 02 => all X or O
+          // horizontal 00, 01, 02 => all X or O sum = 3
+          // horizontal 10, 11, 12 => all X or O sum = 33
+          // horizontal 20, 21, 22 => all X or O sum = 63
+          // vertical 00, 10, 20 => all X or O sum = 30
+          // vertical 01, 11, 21 => all X or O sum = 34
+          // vertical 02, 12, 22 => all X or O sum = 36
+          // diagonal 00, 11, 22 => all X or O sum = 33
+          // diagonal 20, 11, 02 => all X or O sum = 33
 
     //if any of the above satisfy for X before O satisfy any of those
     //X wins, 
