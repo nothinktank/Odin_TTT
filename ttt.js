@@ -70,7 +70,7 @@
       const didPlayerWinHorizontal = function(){
         for (let i = 0; i <= 2; i++) {
           if (gameBoard.boardArray[i][0] != '' && gameBoard.boardArray[i][0] === gameBoard.boardArray[i][1] && gameBoard.boardArray[i][1] === gameBoard.boardArray[i][2]){
-            console.log(`${gameBoard.boardArray[i][0]} player wins`)
+            console.log(`${gameBoard.boardArray[i][0]} player wins`);
             gameBoard.boardArray = [['','',''],['','',''],['','','']];
             return
         }
@@ -78,8 +78,15 @@
       };
       
       const didPlayerWinVertical = function(){
-
+        for (let i = 0; i <= 2; i++) {
+          if (gameBoard.boardArray[0][i] === gameBoard.boardArray[1][i] && gameBoard.boardArray[1][i] === gameBoard.boardArray[2][i] && gameBoard.boardArray[0][i] != ''){
+            console.log(`${gameBoard.boardArray[0][i]} player wins`);
+            gameBoard.boardArray = [['','',''],['','',''],['','','']];
+            return
+          }
+        }
       }
+
       const didPlayerWinDiagonal = function(){
 
       }
