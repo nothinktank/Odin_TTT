@@ -25,10 +25,12 @@
 
     let playerX = (function() {
       const move = (row, column) => {
-        if (gameBoard.boardArray[row][column] === ''){
+        if (gameController.enablePlayerX && gameBoard.boardArray[row][column] === ''){
           gameBoard.boardArray[row][column] = 'x';
+          gameController.enablePlayerX = false;
+          return
         }else {
-          console.log('can\'t place here');
+          console.log('can\'t place here/yet');
           return
         }
       }
@@ -37,13 +39,14 @@
       return {move};
     })();
   
-    
     let playerO = (function() {
       const move = (row, column) => {
-        if (gameBoard.boardArray[row][column] === ''){
+        if (!gameController.enablePlayerX && gameBoard.boardArray[row][column] === ''){
           gameBoard.boardArray[row][column] = 'o';
+          gameController.enablePlayerX = true;
+          return
         }else {
-          console.log('can\'t place here');
+          console.log('can\'t place here/yet');
           return
         }
       }
@@ -53,7 +56,18 @@
     })();
 
 //3. create an object to control the flow of the game
+    //start the game with 'x'
     //alternate the o/x placement 
+
+    const gameController = (function(){
+      let enablePlayerX = true;
+      if (gameBoard.boardArray = [['','',''],['','',''],['','','']]){
+        console.log('x please make a move');
+        
+      }
+
+      return {enablePlayerX}
+    })();
 
 
 
