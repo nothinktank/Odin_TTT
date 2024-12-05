@@ -46,18 +46,27 @@
             player = turnCounter.getTurn() === 'x' ? 'o' : 'x';
             turnCounter.setTurn(player);
           } else {
-            switch (true){
-              case (!!diagonalCheck): console.log(diagonalCheck);
-              break;
 
-              case (!!horizontalCheck): console.log(horizontalCheck);
-              break;
-
-              case (!!verticalCheck): console.log(verticalCheck);
-              break;
+            if (!!verticalCheck) {
+              console.log(verticalCheck);
+            }else if (!!diagonalCheck) {
+              console.log(diagonalCheck);
+            }else{
+              console.log(horizontalCheck);
             }
+            
             gameBoard.resetBoard();
             turnCounter.setTurn('x');
+            // switch (true){
+            //   case (!!diagonalCheck): console.log(diagonalCheck);
+            //   break;
+
+            //   case (!!horizontalCheck): console.log(horizontalCheck);
+            //   break;
+
+            //   case (!!verticalCheck): console.log(verticalCheck);
+            //   break;
+            // }
           }
           
         }
