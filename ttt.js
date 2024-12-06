@@ -34,6 +34,7 @@
 
       //move placer (eventually be replaced by eventlistener)
         //takes 2 coordinates
+        //object to control game flow
       
       const movePlacer = function(row, column){
         if (!gameBoard.checkBoard(row, column)){
@@ -54,24 +55,15 @@
             }else{
               console.log(horizontalCheck);
             }
+
+            //need to check for ties, 
+              //if gameBoard.isFull returns true, return 'game is tied'
             
             gameBoard.resetBoard();
             turnCounter.setTurn('x');
-            // switch (true){
-            //   case (!!diagonalCheck): console.log(diagonalCheck);
-            //   break;
-
-            //   case (!!horizontalCheck): console.log(horizontalCheck);
-            //   break;
-
-            //   case (!!verticalCheck): console.log(verticalCheck);
-            //   break;
-            // }
           }
-          
         }
       }
-
       const didPlayerWinVertical = function(){
         let board = gameBoard.getBoard();
         for (let i = 0; i <= 2; i++){
@@ -82,18 +74,16 @@
           }
         } 
       };
-
       const didPlayerWinHorizontal = function(){
         let board = gameBoard.getBoard();
         for (let i = 0; i <= 2; i++){
           if (board[i][0] != ''){
             if (board[i][0] === board[i][1] && board[i][1] === board[i][2]){
-              return `winner is ${board[0][i]}`;
+              return `winner is ${board[i][0]}`;
             }
           }
         }
       };
-
       const didPlayerWinDiagonal = function(){
         let board = gameBoard.getBoard();
         if (board[1][1] != ''){
@@ -101,23 +91,81 @@
             return `winner is ${board[1][1]}`;
         }
       };
-    };
-
-      //game decider
-        //return check win (return true/false)
-        //return check tie(dont initiate unless the board is full)(if the board is full, check, if not keep going)
-
-
-
-
+      };
 
     //need a button (or click on first slot to place X to initialize a new game)
     
-    // const newBoard = gameBoard();
-    
-
-
-
-
 //5. after the game is functioning in the console, create an object
 //   to handle the display/DOM logic
+      const displayHandler = (function(){
+        //grid references
+        let box00 = document.querySelector('.box00');
+              row00 = Number(box00.getAttribute('row'));
+              column00 = Number(box00.getAttribute('column'));
+        let box01 = document.querySelector('.box01');
+              row01 = Number(box01.getAttribute('row'));
+              column01 = Number(box01.getAttribute('column'));
+        let box02 = document.querySelector('.box02');
+              row02 = Number(box02.getAttribute('row'));
+              column02 = Number(box02.getAttribute('column'));
+        let box10 = document.querySelector('.box10');
+              row10 = Number(box10.getAttribute('row'));
+              column10 = Number(box10.getAttribute('column'));
+        let box11 = document.querySelector('.box11');
+              row11 = Number(box11.getAttribute('row'));
+              column11 = Number(box11.getAttribute('column'));
+        let box12 = document.querySelector('.box12');
+              row12 = Number(box12.getAttribute('row'));
+              column12 = Number(box12.getAttribute('column'));
+        let box20 = document.querySelector('.box20');
+              row20 = Number(box20.getAttribute('row'));
+              column20 = Number(box20.getAttribute('column'));
+        let box21 = document.querySelector('.box21');
+              row21 = Number(box21.getAttribute('row'));
+              column21 = Number(box21.getAttribute('column'));
+        let box22 = document.querySelector('.box22');
+              row22 = Number(box22.getAttribute('row'));
+              column22 = Number(box22.getAttribute('column'));
+
+        box00.addEventListener('click',() => {
+          // console.log(row00);
+          // console.log(column00);
+          box00.textContent = turnCounter.getTurn();
+          movePlacer(row00,column00);
+        })
+        box01.addEventListener('click',() => {
+          box01.textContent = turnCounter.getTurn();
+          movePlacer(row01,column01);
+        })
+        box02.addEventListener('click',() => {
+          box02.textContent = turnCounter.getTurn();
+          movePlacer(row02,column02);
+        })
+        box10.addEventListener('click',() => {
+          box10.textContent = turnCounter.getTurn();
+          movePlacer(row10,column10);
+        })
+        box11.addEventListener('click',() => {
+          box11.textContent = turnCounter.getTurn();
+          movePlacer(row11,column11);
+        })
+        box12.addEventListener('click',() => {
+          box12.textContent = turnCounter.getTurn();
+          movePlacer(row12,column12);
+        })
+        box20.addEventListener('click',() => {
+          box20.textContent = turnCounter.getTurn();
+          movePlacer(row20,column20);
+        })
+        box21.addEventListener('click',() => {
+          box21.textContent = turnCounter.getTurn();
+          movePlacer(row21,column21);
+        })
+        box22.addEventListener('click',() => {
+          box22.textContent = turnCounter.getTurn();
+          movePlacer(row22,column22);
+        })
+        
+
+
+      })();
