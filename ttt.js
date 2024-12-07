@@ -16,7 +16,7 @@
         const resetBoard = () => boardArray = [['','',''],['','',''],['','','']];
         //check board function, if something is there, return true
         const checkBoard = (row, column) => !!boardArray[row][column];
-        const isFull = () => (boardArray.flat(2).join('').length() === 9) 
+        const isFull = () => (boardArray.flat(2).join('').length === 9) 
         
           return {getBoard, setBoard, resetBoard, checkBoard, isFull}
       })();
@@ -43,30 +43,36 @@
           let verticalCheck = didPlayerWinVertical();
           let horizontalCheck = didPlayerWinHorizontal();
           let diagonalCheck = didPlayerWinDiagonal();
-          if(!verticalCheck && !horizontalCheck && !diagonalCheck){
-            player = turnCounter.getTurn() === 'x' ? 'o' : 'x';
-            turnCounter.setTurn(player);
-          } else {
-
-            if (!!verticalCheck) {
-              console.log(verticalCheck);
-              alert(verticalCheck);
-              displayHandler.clearUI();
-            }else if (!!diagonalCheck) {
-              console.log(diagonalCheck);
-              alert(diagonalCheck);
-              displayHandler.clearUI();
-            }else{
-              console.log(horizontalCheck);
-              alert(horizontalCheck);
-              displayHandler.clearUI();
-            }
-
-            //need to check for ties, 
-              //if gameBoard.isFull returns true, return 'game is tied'
-            
+          let boardIsFull = gameBoard.isFull();
+          if(boardIsFull){
             gameBoard.resetBoard();
             turnCounter.setTurn('x');
+            displayHandler.clearUI();
+            alert('game is tied');
+            
+          }else{
+            if(!verticalCheck && !horizontalCheck && !diagonalCheck){
+              player = turnCounter.getTurn() === 'x' ? 'o' : 'x';
+              turnCounter.setTurn(player);
+            } else {
+  
+              if (!!verticalCheck) {
+                console.log(verticalCheck);
+                alert(verticalCheck);
+                displayHandler.clearUI();
+              }else if (!!diagonalCheck) {
+                console.log(diagonalCheck);
+                alert(diagonalCheck);
+                displayHandler.clearUI();
+              }else {
+                console.log(horizontalCheck);
+                alert(horizontalCheck);
+                displayHandler.clearUI();
+              }
+            
+              gameBoard.resetBoard();
+              turnCounter.setTurn('x');
+            }
           }
         }
       }
@@ -99,6 +105,11 @@
       };
       };
 
+      // const didPlayerTie = function(){
+        
+      //   if (boardArray.isFull)
+
+      // };
     //need a button (or click on first slot to place X to initialize a new game)
     
 //5. after the game is functioning in the console, create an object
