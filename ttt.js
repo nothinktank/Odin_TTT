@@ -50,12 +50,15 @@
 
             if (!!verticalCheck) {
               console.log(verticalCheck);
+              alert(verticalCheck);
               displayHandler.clearUI();
             }else if (!!diagonalCheck) {
               console.log(diagonalCheck);
+              alert(diagonalCheck);
               displayHandler.clearUI();
             }else{
               console.log(horizontalCheck);
+              alert(horizontalCheck);
               displayHandler.clearUI();
             }
 
