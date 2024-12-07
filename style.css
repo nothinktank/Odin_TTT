@@ -19,13 +19,14 @@ body {
 
 
 .chessGrid {
+  
   width: 50%;
   justify-self: center;
   
   display: grid;
   
   grid-template-columns: 1fr 1fr 1fr;
-  
+  min-height: fit-content;
 }
 
 /* .row {
@@ -39,3 +40,54 @@ body {
   height: 100px;
   margin: calc(50%/6) ;
 } */
+
+.box00, .box01, .box02, .box10, .box11, .box12, .box20, .box21, .box22 {
+  height: 10vh;
+  text-align: center;
+  line-height: 10vh;
+}
+
+.box00 {
+  border-bottom: 5px solid aqua;
+  border-right: 5px solid aqua;
+}
+
+.box01 {
+  border-bottom: 5px solid aqua;
+  border-right: 5px solid aqua;
+}
+
+.box02 {
+  border-bottom: 5px solid aqua;
+  /* border-right: 5px solid aqua; */
+}
+
+.box10 {
+  border-bottom: 5px solid aqua;
+  border-right: 5px solid aqua;
+}
+
+.box11 {
+  border-bottom: 5px solid aqua;
+  border-right: 5px solid aqua;
+}
+
+.box12 {
+  border-bottom: 5px solid aqua;
+  /* border-right: 5px solid aqua; */
+}
+
+.box20 {
+  /* border-bottom: 5px solid aqua; */
+  border-right: 5px solid aqua;
+}
+
+.box21 {
+  /* border-bottom: 5px solid aqua; */
+  border-right: 5px solid aqua;
+}
+
+.box22 {
+  /* border-bottom: 5px solid aqua; */
+  /* border-right: 5px solid aqua; */
+}

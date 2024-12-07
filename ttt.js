@@ -50,10 +50,13 @@
 
             if (!!verticalCheck) {
               console.log(verticalCheck);
+              displayHandler.clearUI();
             }else if (!!diagonalCheck) {
               console.log(diagonalCheck);
+              displayHandler.clearUI();
             }else{
               console.log(horizontalCheck);
+              displayHandler.clearUI();
             }
 
             //need to check for ties, 
@@ -165,7 +168,23 @@
           box22.textContent = turnCounter.getTurn();
           movePlacer(row22,column22);
         })
-        
 
+
+        const clearUI = function(){
+        
+        box00.textContent = '';
+        box01.textContent = '';
+        box02.textContent = '';
+        box10.textContent = '';
+        box11.textContent = '';
+        box12.textContent = '';
+        box20.textContent = '';
+        box21.textContent = '';
+        box22.textContent = '';
+      }
+
+      return {clearUI}
 
       })();
+
+      
