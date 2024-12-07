@@ -18,7 +18,7 @@
         const checkBoard = (row, column) => !!boardArray[row][column];
         const isFull = () => (boardArray.flat(2).join('').length === 9) 
         
-          return {getBoard, setBoard, resetBoard, checkBoard, isFull}
+          return {getBoard, setBoard, resetBoard, checkBoard, isFull, boardArray}
       })();
 
       //turn counter
@@ -74,6 +74,9 @@
               turnCounter.setTurn('x');
             }
           }
+        }else {
+          console.log('cant place here')
+          return
         }
       }
       const didPlayerWinVertical = function(){
@@ -147,40 +150,65 @@
         box00.addEventListener('click',() => {
           // console.log(row00);
           // console.log(column00);
-          box00.textContent = turnCounter.getTurn();
+          if (!gameBoard.checkBoard(row00, column00)){
+            box00.textContent = turnCounter.getTurn();
           movePlacer(row00,column00);
+          }
+          
         })
         box01.addEventListener('click',() => {
-          box01.textContent = turnCounter.getTurn();
+          if (!gameBoard.checkBoard(row01, column01)){
+            box01.textContent = turnCounter.getTurn();
           movePlacer(row01,column01);
+          }
         })
         box02.addEventListener('click',() => {
-          box02.textContent = turnCounter.getTurn();
+          if (!gameBoard.checkBoard(row02, column02)){
+            box02.textContent = turnCounter.getTurn();
           movePlacer(row02,column02);
+          }
         })
         box10.addEventListener('click',() => {
-          box10.textContent = turnCounter.getTurn();
+          if (!gameBoard.checkBoard(row10, column10)){
+            box10.textContent = turnCounter.getTurn();
           movePlacer(row10,column10);
+          }
+          
         })
         box11.addEventListener('click',() => {
-          box11.textContent = turnCounter.getTurn();
+          if (!gameBoard.checkBoard(row11, column11)){
+            box11.textContent = turnCounter.getTurn();
           movePlacer(row11,column11);
+          }
+          
         })
         box12.addEventListener('click',() => {
-          box12.textContent = turnCounter.getTurn();
+          if (!gameBoard.checkBoard(row12, column12)){
+            box12.textContent = turnCounter.getTurn();
           movePlacer(row12,column12);
+          }
+          
         })
         box20.addEventListener('click',() => {
-          box20.textContent = turnCounter.getTurn();
+          if (!gameBoard.checkBoard(row20, column20)){
+            box20.textContent = turnCounter.getTurn();
           movePlacer(row20,column20);
+          }
+          
         })
         box21.addEventListener('click',() => {
-          box21.textContent = turnCounter.getTurn();
+          if (!gameBoard.checkBoard(row21, column21)){
+            box21.textContent = turnCounter.getTurn();
           movePlacer(row21,column21);
+          }
+          
         })
         box22.addEventListener('click',() => {
-          box22.textContent = turnCounter.getTurn();
+          if (!gameBoard.checkBoard(row22, column22)){
+            box22.textContent = turnCounter.getTurn();
           movePlacer(row22,column22);
+          }
+          
         })
 
 
