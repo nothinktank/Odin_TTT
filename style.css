@@ -27,6 +27,8 @@ body {
   
   grid-template-columns: 1fr 1fr 1fr;
   min-height: fit-content;
+
+  font-size: xx-large;
 }
 
 /* .row {
