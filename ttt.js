@@ -117,116 +117,161 @@
     
 //5. after the game is functioning in the console, create an object
 //   to handle the display/DOM logic
-      const displayHandler = (function(){
-        //grid references
-        let box00 = document.querySelector('.box00');
-              row00 = Number(box00.getAttribute('row'));
-              column00 = Number(box00.getAttribute('column'));
-        let box01 = document.querySelector('.box01');
-              row01 = Number(box01.getAttribute('row'));
-              column01 = Number(box01.getAttribute('column'));
-        let box02 = document.querySelector('.box02');
-              row02 = Number(box02.getAttribute('row'));
-              column02 = Number(box02.getAttribute('column'));
-        let box10 = document.querySelector('.box10');
-              row10 = Number(box10.getAttribute('row'));
-              column10 = Number(box10.getAttribute('column'));
-        let box11 = document.querySelector('.box11');
-              row11 = Number(box11.getAttribute('row'));
-              column11 = Number(box11.getAttribute('column'));
-        let box12 = document.querySelector('.box12');
-              row12 = Number(box12.getAttribute('row'));
-              column12 = Number(box12.getAttribute('column'));
-        let box20 = document.querySelector('.box20');
-              row20 = Number(box20.getAttribute('row'));
-              column20 = Number(box20.getAttribute('column'));
-        let box21 = document.querySelector('.box21');
-              row21 = Number(box21.getAttribute('row'));
-              column21 = Number(box21.getAttribute('column'));
-        let box22 = document.querySelector('.box22');
-              row22 = Number(box22.getAttribute('row'));
-              column22 = Number(box22.getAttribute('column'));
+      // const displayHandler = (function(){
+      //   //grid references
+      //   let box00 = document.querySelector('.box00');
+      //         row00 = Number(box00.getAttribute('row'));
+      //         column00 = Number(box00.getAttribute('column'));
+      //   let box01 = document.querySelector('.box01');
+      //         row01 = Number(box01.getAttribute('row'));
+      //         column01 = Number(box01.getAttribute('column'));
+      //   let box02 = document.querySelector('.box02');
+      //         row02 = Number(box02.getAttribute('row'));
+      //         column02 = Number(box02.getAttribute('column'));
+      //   let box10 = document.querySelector('.box10');
+      //         row10 = Number(box10.getAttribute('row'));
+      //         column10 = Number(box10.getAttribute('column'));
+      //   let box11 = document.querySelector('.box11');
+      //         row11 = Number(box11.getAttribute('row'));
+      //         column11 = Number(box11.getAttribute('column'));
+      //   let box12 = document.querySelector('.box12');
+      //         row12 = Number(box12.getAttribute('row'));
+      //         column12 = Number(box12.getAttribute('column'));
+      //   let box20 = document.querySelector('.box20');
+      //         row20 = Number(box20.getAttribute('row'));
+      //         column20 = Number(box20.getAttribute('column'));
+      //   let box21 = document.querySelector('.box21');
+      //         row21 = Number(box21.getAttribute('row'));
+      //         column21 = Number(box21.getAttribute('column'));
+      //   let box22 = document.querySelector('.box22');
+      //         row22 = Number(box22.getAttribute('row'));
+      //         column22 = Number(box22.getAttribute('column'));
 
-        box00.addEventListener('click',() => {
-          // console.log(row00);
-          // console.log(column00);
-          if (!gameBoard.checkBoard(row00, column00)){
-            box00.textContent = turnCounter.getTurn();
-          movePlacer(row00,column00);
-          }
+      //   box00.addEventListener('click',() => {
+      //     // console.log(row00);
+      //     // console.log(column00);
+      //     if (!gameBoard.checkBoard(row00, column00)){
+      //       box00.textContent = turnCounter.getTurn();
+      //     movePlacer(row00,column00);
+      //     }
           
-        })
-        box01.addEventListener('click',() => {
-          if (!gameBoard.checkBoard(row01, column01)){
-            box01.textContent = turnCounter.getTurn();
-          movePlacer(row01,column01);
-          }
-        })
-        box02.addEventListener('click',() => {
-          if (!gameBoard.checkBoard(row02, column02)){
-            box02.textContent = turnCounter.getTurn();
-          movePlacer(row02,column02);
-          }
-        })
-        box10.addEventListener('click',() => {
-          if (!gameBoard.checkBoard(row10, column10)){
-            box10.textContent = turnCounter.getTurn();
-          movePlacer(row10,column10);
-          }
+      //   })
+      //   box01.addEventListener('click',() => {
+      //     if (!gameBoard.checkBoard(row01, column01)){
+      //       box01.textContent = turnCounter.getTurn();
+      //     movePlacer(row01,column01);
+      //     }
+      //   })
+      //   box02.addEventListener('click',() => {
+      //     if (!gameBoard.checkBoard(row02, column02)){
+      //       box02.textContent = turnCounter.getTurn();
+      //     movePlacer(row02,column02);
+      //     }
+      //   })
+      //   box10.addEventListener('click',() => {
+      //     if (!gameBoard.checkBoard(row10, column10)){
+      //       box10.textContent = turnCounter.getTurn();
+      //     movePlacer(row10,column10);
+      //     }
           
-        })
-        box11.addEventListener('click',() => {
-          if (!gameBoard.checkBoard(row11, column11)){
-            box11.textContent = turnCounter.getTurn();
-          movePlacer(row11,column11);
-          }
+      //   })
+      //   box11.addEventListener('click',() => {
+      //     if (!gameBoard.checkBoard(row11, column11)){
+      //       box11.textContent = turnCounter.getTurn();
+      //     movePlacer(row11,column11);
+      //     }
           
-        })
-        box12.addEventListener('click',() => {
-          if (!gameBoard.checkBoard(row12, column12)){
-            box12.textContent = turnCounter.getTurn();
-          movePlacer(row12,column12);
-          }
+      //   })
+      //   box12.addEventListener('click',() => {
+      //     if (!gameBoard.checkBoard(row12, column12)){
+      //       box12.textContent = turnCounter.getTurn();
+      //     movePlacer(row12,column12);
+      //     }
           
-        })
-        box20.addEventListener('click',() => {
-          if (!gameBoard.checkBoard(row20, column20)){
-            box20.textContent = turnCounter.getTurn();
-          movePlacer(row20,column20);
-          }
+      //   })
+      //   box20.addEventListener('click',() => {
+      //     if (!gameBoard.checkBoard(row20, column20)){
+      //       box20.textContent = turnCounter.getTurn();
+      //     movePlacer(row20,column20);
+      //     }
           
-        })
-        box21.addEventListener('click',() => {
-          if (!gameBoard.checkBoard(row21, column21)){
-            box21.textContent = turnCounter.getTurn();
-          movePlacer(row21,column21);
-          }
+      //   })
+      //   box21.addEventListener('click',() => {
+      //     if (!gameBoard.checkBoard(row21, column21)){
+      //       box21.textContent = turnCounter.getTurn();
+      //     movePlacer(row21,column21);
+      //     }
           
-        })
-        box22.addEventListener('click',() => {
-          if (!gameBoard.checkBoard(row22, column22)){
-            box22.textContent = turnCounter.getTurn();
-          movePlacer(row22,column22);
-          }
+      //   })
+      //   box22.addEventListener('click',() => {
+      //     if (!gameBoard.checkBoard(row22, column22)){
+      //       box22.textContent = turnCounter.getTurn();
+      //     movePlacer(row22,column22);
+      //     }
           
-        })
+      //   })
 
 
-        const clearUI = function(){
+      //   const clearUI = function(){
         
-        box00.textContent = '';
-        box01.textContent = '';
-        box02.textContent = '';
-        box10.textContent = '';
-        box11.textContent = '';
-        box12.textContent = '';
-        box20.textContent = '';
-        box21.textContent = '';
-        box22.textContent = '';
-      }
+      //   box00.textContent = '';
+      //   box01.textContent = '';
+      //   box02.textContent = '';
+      //   box10.textContent = '';
+      //   box11.textContent = '';
+      //   box12.textContent = '';
+      //   box20.textContent = '';
+      //   box21.textContent = '';
+      //   box22.textContent = '';
+      // }
 
-      return {clearUI}
+      // return {clearUI}
 
+      // })();
+
+      //create double array of boxes for the UI that matches the board
+
+      const UIHandler = (function(){
+        let chessGrid = document.querySelector('.chessGrid');
+        let rowArray = [];
+        let columnArray = [];
+        
+        //create div elements for displaying the player's move
+        
+        for(let i = 0; i <= 2; i++){
+          let columnBox = document.createElement('div');
+          
+          columnBox.setAttribute('column', `${i}`);
+          for (let k = 0; k <= 2; k++){
+            let rowBox = document.createElement('div');
+            rowBox.className = 'rowBoxes';
+            
+            rowBox.setAttribute('row',`${k}`);
+            rowBox.addEventListener('click', () => {
+              if (!gameBoard.checkBoard(i,k)){
+                rowBox.textContent = turnCounter.getTurn();
+                movePlacer(i,k);
+              }
+            })
+
+            rowBox.style.border = 'solid 2px aqua'
+            // const w = 48/3;
+            // const h = 100/5;
+            // rowBox.style.width = `${w}vw`;
+            // rowBox.style.height = `${h}vh`;
+            columnBox.appendChild(rowBox);
+            rowArray[k] = rowBox;
+          }
+          chessGrid.appendChild(columnBox);
+          columnArray[i] = columnBox;
+          
+        }
+        //display the div elements on the UI
+
+        //store the div elements in columnArray
+        //store the div elements in rowArray 
+
+        // chessGrid.appendChild(rowArray)
+        
+        return {rowArray, columnArray}
       })();
-
-      

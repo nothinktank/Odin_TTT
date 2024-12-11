@@ -20,17 +20,26 @@ body {
 
 .chessGrid {
   
-  width: 50%;
+  width: 50vw;
+  height: 50vh;
   justify-self: center;
   
   display: grid;
   
-  grid-template-columns: 1fr 1fr 1fr;
+  
+  /* grid-template-columns: 1fr; */
+  grid-template-rows: 1fr 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr 1fr; */
   min-height: fit-content;
 
   font-size: xx-large;
+  /* padding: 20px; */
 }
 
+.rowBoxes {
+  display: inline-block;
+  width: fit-content;
+}
 /* .row {
   margin-top: 5vh;
   margin-bottom: 5vh;
