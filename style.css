@@ -36,10 +36,15 @@ body {
   /* padding: 20px; */
 }
 
-.rowBoxes {
-  display: inline-block;
-  width: fit-content;
+.column {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
+
+/* .rowBoxes {
+  display: inline-block;
+  width: max-content;
+} */
 /* .row {
   margin-top: 5vh;
   margin-bottom: 5vh;

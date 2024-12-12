@@ -47,7 +47,7 @@
           if(boardIsFull){
             gameBoard.resetBoard();
             turnCounter.setTurn('x');
-            displayHandler.clearUI();
+            
             alert('game is tied');
             
           }else{
@@ -59,15 +59,12 @@
               if (!!verticalCheck) {
                 console.log(verticalCheck);
                 alert(verticalCheck);
-                displayHandler.clearUI();
               }else if (!!diagonalCheck) {
                 console.log(diagonalCheck);
                 alert(diagonalCheck);
-                displayHandler.clearUI();
               }else {
                 console.log(horizontalCheck);
                 alert(horizontalCheck);
-                displayHandler.clearUI();
               }
             
               gameBoard.resetBoard();
@@ -235,12 +232,14 @@
         let chessGrid = document.querySelector('.chessGrid');
         let rowArray = [];
         let columnArray = [];
-        
+        let clearButton = document.querySelector('.clearButton');
+        // let wipe = wipeBoard(); 
+        clearButton.addEventListener('click', () => wipeBoard());
         //create div elements for displaying the player's move
         
         for(let i = 0; i <= 2; i++){
           let columnBox = document.createElement('div');
-          
+          columnBox.className = 'column';
           columnBox.setAttribute('column', `${i}`);
           for (let k = 0; k <= 2; k++){
             let rowBox = document.createElement('div');
@@ -255,23 +254,26 @@
             })
 
             rowBox.style.border = 'solid 2px aqua'
-            // const w = 48/3;
-            // const h = 100/5;
-            // rowBox.style.width = `${w}vw`;
-            // rowBox.style.height = `${h}vh`;
+            
             columnBox.appendChild(rowBox);
-            rowArray[k] = rowBox;
+            // rowArray[k] = rowBox;
           }
           chessGrid.appendChild(columnBox);
-          columnArray[i] = columnBox;
+          // columnArray[i] = columnBox;
           
         }
-        //display the div elements on the UI
-
-        //store the div elements in columnArray
-        //store the div elements in rowArray 
-
-        // chessGrid.appendChild(rowArray)
         
-        return {rowArray, columnArray}
+        const wipeBoard = function(){
+          const rowBoxes = document.querySelectorAll('.rowBoxes');
+  
+          rowBoxes.forEach(rowBox => {
+            rowBox.textContent = '';
+          });
+          gameBoard.resetBoard();
+        }
+        // return {rowArray, columnArray}
       })();
+
+      //create board function, used to wipe the board after a outcome has been reached
+
+      
