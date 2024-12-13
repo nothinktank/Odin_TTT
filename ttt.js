@@ -44,11 +44,18 @@
           let horizontalCheck = didPlayerWinHorizontal();
           let diagonalCheck = didPlayerWinDiagonal();
           let boardIsFull = gameBoard.isFull();
+
+          let titleBlock = document.querySelector('.title');
+          let resultLabel = document.createElement('div');
+          resultLabel.className = 'result';
+          
+
           if(boardIsFull){
             gameBoard.resetBoard();
             turnCounter.setTurn('x');
-            
-            alert('game is tied');
+            resultLabel.textContent = 'game is tied';
+            titleBlock.appendChild(resultLabel);
+            // alert('');
             
           }else{
             if(!verticalCheck && !horizontalCheck && !diagonalCheck){
@@ -57,14 +64,20 @@
             } else {
   
               if (!!verticalCheck) {
+                resultLabel.textContent = `${verticalCheck}`;
+                titleBlock.appendChild(resultLabel);
                 console.log(verticalCheck);
-                alert(verticalCheck);
+                // alert(verticalCheck);
               }else if (!!diagonalCheck) {
+                resultLabel.textContent = `${diagonalCheck}`;
+                titleBlock.appendChild(resultLabel);
                 console.log(diagonalCheck);
-                alert(diagonalCheck);
+                // alert(diagonalCheck);
               }else {
+                resultLabel.textContent = `${horizontalCheck}`;
+                titleBlock.appendChild(resultLabel);
                 console.log(horizontalCheck);
-                alert(horizontalCheck);
+                // alert(horizontalCheck);
               }
             
               gameBoard.resetBoard();
@@ -267,7 +280,8 @@
         
         const wipeBoard = function(){
           const rowBoxes = document.querySelectorAll('.rowBoxes');
-  
+          const resultLabel = document.querySelector('.result');
+          resultLabel.textContent = 'x goes first!';
           rowBoxes.forEach(rowBox => {
             rowBox.textContent = '';
           });
