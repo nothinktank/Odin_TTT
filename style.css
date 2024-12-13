@@ -26,6 +26,9 @@ body {
 
 .result {
   padding-bottom: 3vh;
+  background-color: lightgray;
+  transition: background-color .5s ease;
+
 }
 
 
@@ -57,9 +60,9 @@ body {
   text-align: center;
 }
 
-/* .rowBoxes:hover {
-  transition-delay: 250ms;
-  background-color: lightgrey;
+/* .result {
+  transition-delay: 500ms;
+  background-color: white;
   transition-property: background-color;
 } */
 

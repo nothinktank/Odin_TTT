@@ -46,8 +46,18 @@
           let boardIsFull = gameBoard.isFull();
 
           let titleBlock = document.querySelector('.title');
+
+          //result label properties when the game is over
           let resultLabel = document.createElement('div');
           resultLabel.className = 'result';
+
+          const labelTransition = function() {
+            resultLabel.style.backgroundColor = 'white';
+          };
+          setTimeout(labelTransition, 50);
+
+          // resultLabel.style.transition = 'background-color 5s ease';
+          
           
 
           if(boardIsFull){
