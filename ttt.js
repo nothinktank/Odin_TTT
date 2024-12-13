@@ -238,11 +238,18 @@
         //create div elements for displaying the player's move
         
         for(let i = 0; i <= 2; i++){
+
           let columnBox = document.createElement('div');
+          if (i < 2){
+            columnBox.style.borderBottom = '5px solid black';
+          }
           columnBox.className = 'column';
           columnBox.setAttribute('column', `${i}`);
           for (let k = 0; k <= 2; k++){
             let rowBox = document.createElement('div');
+            if (k < 2){
+              rowBox.style.borderRight = '5px solid black';
+            }
             rowBox.className = 'rowBoxes';
             
             rowBox.setAttribute('row',`${k}`);
@@ -253,7 +260,7 @@
               }
             })
 
-            rowBox.style.border = 'solid 2px aqua'
+            // rowBox.style.border = 'solid 2px aqua'
             
             columnBox.appendChild(rowBox);
             // rowArray[k] = rowBox;
