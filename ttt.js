@@ -268,6 +268,24 @@
               }
             })
 
+            rowBox.addEventListener('mouseenter', () => {
+              rowBox.style.transition =  `background-color 0.1s ease`;
+              rowBox.style.backgroundColor = 'lightgrey';
+              // if(rowBox.style.opacity > 0){
+              //   let opacity = parseFloat(rowDiv.style.opacity);
+              //   rowBox.style.opacity = `${opacity - 0.1}`;
+              // }
+            })
+
+            rowBox.addEventListener('mouseleave', () => {
+              rowBox.style.transition =  `background-color 1s ease`;
+              rowBox.style.backgroundColor = 'white';
+              if(rowBox.style.opacity > 0){
+                let opacity = parseFloat(rowDiv.style.opacity);
+                rowBox.style.opacity = `${opacity - 0.1}`;
+              }
+            })
+
             // rowBox.style.border = 'solid 2px aqua'
             
             columnBox.appendChild(rowBox);
