@@ -104,13 +104,6 @@
         }
       };
       };
-
-      // const didPlayerTie = function(){
-        
-      //   if (boardArray.isFull)
-
-      // };
-    //need a button (or click on first slot to place X to initialize a new game)
     
 //5. after the game is functioning in the console, create an object
 //   to handle the display/DOM logic
@@ -241,6 +234,7 @@
 
           let columnBox = document.createElement('div');
           if (i < 2){
+            //styling the game board's horizontal lines
             columnBox.style.borderBottom = '5px solid black';
           }
           columnBox.className = 'column';
@@ -248,6 +242,7 @@
           for (let k = 0; k <= 2; k++){
             let rowBox = document.createElement('div');
             if (k < 2){
+              //styling the game board's vertical lines
               rowBox.style.borderRight = '5px solid black';
             }
             rowBox.className = 'rowBoxes';

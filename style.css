@@ -82,3 +82,26 @@ body {
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 
+@media (max-width: 400px) {
+  .chessGrid {
+    width: 80vw;
+    height: 50vh;
+    justify-self: center;
+    
+    display: grid;
+    
+    
+    /* grid-template-columns: 1fr; */
+    grid-template-rows: 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    min-height: fit-content;
+  
+    font-size: xx-large;
+    /* padding: 20px; */
+   }
+   /* .regularbutton{
+    width: 24.6%;
+    margin: 0.2%;
+    height: 10%;
+   } */
+ }
