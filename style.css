@@ -41,69 +41,44 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-/* .rowBoxes {
-  display: inline-block;
-  width: max-content;
-} */
-/* .row {
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-}
-
-.row span {
-  background-color: aqua;
-  width: 10px;
-  height: 100px;
-  margin: calc(50%/6) ;
-} */
-
-.box00, .box01, .box02, .box10, .box11, .box12, .box20, .box21, .box22 {
-  height: 10vh;
+.rowBoxes {
+  align-content: center;
   text-align: center;
-  line-height: 10vh;
 }
 
-.box00 {
-  border-bottom: 5px solid aqua;
-  border-right: 5px solid aqua;
+
+.clearButton {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  /* display: inline-flex; */
+  flex: 1 1 auto;
+  font-family: Inter,sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s,-webkit-box-shadow .2s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  justify-self: center;
+  margin: 5vh;
 }
 
-.box01 {
-  border-bottom: 5px solid aqua;
-  border-right: 5px solid aqua;
+.clearButton:hover {
+  box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 
-.box02 {
-  border-bottom: 5px solid aqua;
-  /* border-right: 5px solid aqua; */
-}
-
-.box10 {
-  border-bottom: 5px solid aqua;
-  border-right: 5px solid aqua;
-}
-
-.box11 {
-  border-bottom: 5px solid aqua;
-  border-right: 5px solid aqua;
-}
-
-.box12 {
-  border-bottom: 5px solid aqua;
-  /* border-right: 5px solid aqua; */
-}
-
-.box20 {
-  /* border-bottom: 5px solid aqua; */
-  border-right: 5px solid aqua;
-}
-
-.box21 {
-  /* border-bottom: 5px solid aqua; */
-  border-right: 5px solid aqua;
-}
-
-/* .box22 {
-  border-bottom: 5px solid aqua;
-  border-right: 5px solid aqua;
-} */
