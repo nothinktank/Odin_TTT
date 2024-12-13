@@ -82,7 +82,7 @@ body {
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
   .cushion{
     display: flex;
     justify-content: center;
@@ -108,4 +108,4 @@ body {
     margin: 0.2%;
     height: 10%;
    } */
- }
+ } */
