@@ -83,6 +83,9 @@ body {
 }
 
 @media (max-width: 400px) {
+  .cushion{
+    justify-content: center;
+  }
   .chessGrid {
     width: 80vw;
     height: 50vh;
