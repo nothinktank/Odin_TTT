@@ -280,11 +280,15 @@
         
         const wipeBoard = function(){
           const rowBoxes = document.querySelectorAll('.rowBoxes');
-          const resultLabel = document.querySelector('.result');
-          resultLabel.textContent = 'x goes first!';
+          const resultLabel = document.querySelectorAll('.result');
+          resultLabel.forEach(label => {
+            label.textContent = '';
+          });
+          
           rowBoxes.forEach(rowBox => {
             rowBox.textContent = '';
           });
+          resultLabel.textContent = 'x goes first!';
           gameBoard.resetBoard();
         }
         // return {rowArray, columnArray}
