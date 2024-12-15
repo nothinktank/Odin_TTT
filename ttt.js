@@ -26,6 +26,7 @@
         const getStatus = () => isGameOver;
         const setStatus = () => isGameOver = !isGameOver;
         const resetStatus = () => isGameOver = true;
+        
         return {getStatus, setStatus, resetStatus}
       })();
       //turn counter
@@ -45,8 +46,6 @@
         //object to control game flow
       
       const movePlacer = function(row, column){
-        let status = gameStatus.getStatus();
-
         if (!gameBoard.checkBoard(row, column)){
           let player = turnCounter.getTurn();
           gameBoard.setBoard(row, column, player);
@@ -70,9 +69,13 @@
             // alert('');
             
           }else{
-            if(!verticalCheck && !horizontalCheck && !diagonalCheck){
+            if(!verticalCheck && !horizontalCheck && !diagonalCheck){ //check if game is not over
               player = turnCounter.getTurn() === 'x' ? 'o' : 'x';
-              turnCounter.setTurn(player);
+              // if (gameStatus.getStatus()){
+              //   turnCounter.setTurn('x');
+              // }else{
+               turnCounter.setTurn(player);
+              // }
             } else {
   
               if (!!verticalCheck) {
@@ -323,19 +326,24 @@
         
         const wipeBoard = function(){
           gameStatus.resetStatus();
+          turnCounter.setTurn('x');
           const rowBoxes = document.querySelectorAll('.rowBoxes');
-          const resultLabel = document.querySelectorAll('.result');
-          resultLabel.forEach(label => {
-            label.textContent = '';
-          });
+          const resultLabel = document.querySelector('.result');
+          if (resultLabel){
+            resultLabel.remove();
+          }
+          
+          // resultLabel.forEach(label => {
+          //   label.textContent = '';
+          // });
           
           rowBoxes.forEach(rowBox => {
             rowBox.textContent = '';
           });
-          resultLabel.textContent = 'x goes first!';
+          
           gameBoard.resetBoard();
         }
-        return {wipeBoard, status}
+        return {wipeBoard}
       })();
 
       
