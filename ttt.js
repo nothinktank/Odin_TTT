@@ -26,6 +26,7 @@
         //set the turn of the next 
 
       const turnCounter = (function(){
+        
         let turn = 'x';
         const getTurn = () => turn;
         const setTurn = (player) => turn = player;
@@ -37,6 +38,8 @@
         //object to control game flow
       
       const movePlacer = function(row, column){
+        let gameStatus = gameStatus();
+
         if (!gameBoard.checkBoard(row, column)){
           let player = turnCounter.getTurn();
           gameBoard.setBoard(row, column, player);
@@ -51,19 +54,11 @@
           let resultLabel = document.createElement('div');
           resultLabel.className = 'result';
 
-          const labelTransition = function() {
-            resultLabel.style.backgroundColor = 'white';
-          };
-          setTimeout(labelTransition, 50);
-
-          // resultLabel.style.transition = 'background-color 5s ease';
-          
-          
-
           if(boardIsFull){
             gameBoard.resetBoard();
             turnCounter.setTurn('x');
             resultLabel.textContent = 'game is tied';
+            gameStatus.setStatus();//game over object change
             titleBlock.appendChild(resultLabel);
             // alert('');
             
@@ -76,16 +71,19 @@
               if (!!verticalCheck) {
                 resultLabel.textContent = `${verticalCheck}`;
                 titleBlock.appendChild(resultLabel);
+                gameStatus.setStatus();//game over object change
                 console.log(verticalCheck);
                 // alert(verticalCheck);
               }else if (!!diagonalCheck) {
                 resultLabel.textContent = `${diagonalCheck}`;
                 titleBlock.appendChild(resultLabel);
+                gameStatus.setStatus();//game over object change
                 console.log(diagonalCheck);
                 // alert(diagonalCheck);
               }else {
                 resultLabel.textContent = `${horizontalCheck}`;
                 titleBlock.appendChild(resultLabel);
+                gameStatus.setStatus();//game over object change
                 console.log(horizontalCheck);
                 // alert(horizontalCheck);
               }
@@ -248,6 +246,8 @@
         let chessGrid = document.querySelector('.chessGrid');
         let rowArray = [];
         let columnArray = [];
+        let gameStatus = gameStatus();
+        
         let clearButton = document.querySelector('.clearButton');
         // let wipe = wipeBoard(); 
         clearButton.addEventListener('click', () => wipeBoard());
@@ -272,10 +272,17 @@
             
             rowBox.setAttribute('row',`${k}`);
             rowBox.addEventListener('click', () => {
+              if (gameStatus.isGameOver){
+                wipeBoard();
+              }
               if (!gameBoard.checkBoard(i,k)){
                 rowBox.textContent = turnCounter.getTurn();
                 movePlacer(i,k);
-              }
+                
+                  }
+              //else if (!gameBoard.checkBoard(i,k)){
+              //   movePlacer(i,k);
+              // }
             })
 
             rowBox.addEventListener('mouseenter', () => {
@@ -319,9 +326,15 @@
           resultLabel.textContent = 'x goes first!';
           gameBoard.resetBoard();
         }
-        // return {rowArray, columnArray}
+        return {wipeBoard}
       })();
 
+      const gameStatus = (function(){
+        let isGameOver = false;
+        const getStatus = () => isGameOver;
+        const setStatus = () => isGameOver = !isGameOver;
+        return {getStatus, setStatus}
+      })();
       //create board function, used to wipe the board after a outcome has been reached
 
       

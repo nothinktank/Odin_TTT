@@ -23,14 +23,17 @@ body {
   font-size: x-large;
   font-weight: bolder;
 }
-
-.result {
-  padding-bottom: 3vh;
-  background-color: lightgray;
-  transition: background-color .5s ease;
-
+@keyframes animate-result {
+  to{
+    background-color: white;
+  }
 }
 
+.result{
+  background-color: lightgrey;
+  animation: animate-result 0.5s ease forwards 0.5s;
+  padding-bottom: 3vh;
+}
 
 .chessGrid {
   
