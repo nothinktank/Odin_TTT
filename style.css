@@ -30,9 +30,16 @@ body {
 }
 
 .result{
+  display: flex;
   background-color: lightgrey;
   animation: animate-result 0.5s ease forwards 0.5s;
-  padding-bottom: 3vh;
+  text-align: center;
+  
+  height: 4vh;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  margin: 0 40%;
 }
 
 .chessGrid {
