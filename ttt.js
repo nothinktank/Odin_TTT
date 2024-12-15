@@ -21,6 +21,13 @@
           return {getBoard, setBoard, resetBoard, checkBoard, isFull, boardArray}
       })();
 
+      const gameStatus = (function(){
+        let isGameOver = false;
+        const getStatus = () => isGameOver;
+        const setStatus = () => isGameOver = !isGameOver;
+        const resetStatus = () => isGameOver = true;
+        return {getStatus, setStatus, resetStatus}
+      })();
       //turn counter
         //whos turn is it now? x/o
         //set the turn of the next 
@@ -38,7 +45,7 @@
         //object to control game flow
       
       const movePlacer = function(row, column){
-        let gameStatus = gameStatus();
+        let status = gameStatus.getStatus();
 
         if (!gameBoard.checkBoard(row, column)){
           let player = turnCounter.getTurn();
@@ -246,7 +253,7 @@
         let chessGrid = document.querySelector('.chessGrid');
         let rowArray = [];
         let columnArray = [];
-        let gameStatus = gameStatus();
+        
         
         let clearButton = document.querySelector('.clearButton');
         // let wipe = wipeBoard(); 
@@ -272,8 +279,9 @@
             
             rowBox.setAttribute('row',`${k}`);
             rowBox.addEventListener('click', () => {
-              if (gameStatus.isGameOver){
+              if (gameStatus.getStatus()){
                 wipeBoard();
+                gameStatus.setStatus();
               }
               if (!gameBoard.checkBoard(i,k)){
                 rowBox.textContent = turnCounter.getTurn();
@@ -314,6 +322,7 @@
         }
         
         const wipeBoard = function(){
+          gameStatus.resetStatus();
           const rowBoxes = document.querySelectorAll('.rowBoxes');
           const resultLabel = document.querySelectorAll('.result');
           resultLabel.forEach(label => {
@@ -326,15 +335,10 @@
           resultLabel.textContent = 'x goes first!';
           gameBoard.resetBoard();
         }
-        return {wipeBoard}
+        return {wipeBoard, status}
       })();
 
-      const gameStatus = (function(){
-        let isGameOver = false;
-        const getStatus = () => isGameOver;
-        const setStatus = () => isGameOver = !isGameOver;
-        return {getStatus, setStatus}
-      })();
+      
       //create board function, used to wipe the board after a outcome has been reached
 
       
