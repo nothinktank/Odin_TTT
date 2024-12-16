@@ -60,7 +60,7 @@
           let resultLabel = document.createElement('div');
           resultLabel.className = 'result';
 
-          if(boardIsFull){
+          if(boardIsFull && (!verticalCheck && !horizontalCheck && !diagonalCheck)){
             gameBoard.resetBoard();
             turnCounter.setTurn('x');
             resultLabel.textContent = 'game is tied';
